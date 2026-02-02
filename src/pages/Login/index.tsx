@@ -12,10 +12,10 @@ const LOGO_SVG = (
     />
     <path d="M6 10H14V26H6V10Z" fill="white" />
     <path d="M6 10L10 14L14 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <text x="28" y="24" fill="#213F7D" fontFamily="Work Sans, sans-serif" fontSize="24" fontWeight="700">
+    <text x="28" y="24" fill="#213F7D" fontFamily="Avenir Next, Avenir, sans-serif" fontSize="24" fontWeight="700">
       lends
     </text>
-    <text x="108" y="24" fill="#39CDCC" fontFamily="Work Sans, sans-serif" fontSize="24" fontWeight="700">
+    <text x="108" y="24" fill="#39CDCC" fontFamily="Avenir Next, Avenir, sans-serif" fontSize="24" fontWeight="700">
       qr
     </text>
   </svg>
