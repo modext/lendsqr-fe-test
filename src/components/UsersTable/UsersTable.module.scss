@@ -1,6 +1,6 @@
 @use "../../styles/variables" as *;
 
-/* overflow: visible required so ActionMenu (right: -60px) is not clipped */
+/* overflow: visible required so ActionMenu (right: -60px) is not clipped on desktop */
 .wrap {
   width: 100%;
   max-width: 1037px;
@@ -12,6 +12,17 @@
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   overflow: visible;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: 16px;
+    min-height: 400px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 12px;
+  }
 }
 
 .wrap * {
@@ -21,6 +32,10 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+
+  @media (max-width: $breakpoint-lg) {
+    min-width: 900px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -95,6 +110,14 @@ thead th {
   background: $bg-card;
   white-space: nowrap;
   border-bottom: none;
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 11px;
+    padding: 0 12px 10px 0;
+  }
+  @media (max-width: $breakpoint-md) {
+    padding: 0 8px 8px 0;
+  }
 }
 
 thead th:first-child,
@@ -111,6 +134,15 @@ tbody td {
   line-height: 100%;
   letter-spacing: 0;
   color: #545F7D;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: 14px 12px 14px 0;
+    font-size: 13px;
+  }
+  @media (max-width: $breakpoint-md) {
+    padding: 12px 8px 12px 0;
+    font-size: 12px;
+  }
 }
 
 tbody tr:first-child td {

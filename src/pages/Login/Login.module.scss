@@ -5,6 +5,7 @@
 $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
 .container {
+  position: relative;
   min-height: 100vh;
   display: flex;
   background: $color-background-card;
@@ -31,6 +32,15 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
 .logo {
   flex-shrink: 0;
   margin-bottom: $spacing-md;
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    left: 97px;
+    top: 106px;
+    width: 173.76px;
+    height: 36px;
+    margin: 0;
+  }
 }
 
 .logoImg {
@@ -38,6 +48,12 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   width: auto;
   display: block;
   object-fit: contain;
+
+  @media (min-width: $breakpoint-lg) {
+    width: 173.76px;
+    height: 36px;
+    object-fit: contain;
+  }
 }
 
 .illustrationWrap {
@@ -47,6 +63,17 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   justify-content: center;
   min-height: 280px;
   padding: $spacing-md 0;
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    left: 67px;
+    top: 281px;
+    width: 600px;
+    height: 337.57px;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+  }
 }
 
 .illustration {
@@ -55,12 +82,20 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   height: auto;
   object-fit: contain;
   object-position: center;
+
+  @media (min-width: $breakpoint-lg) {
+    width: 600px;
+    height: 337.57px;
+    max-width: none;
+    object-fit: cover;
+  }
 }
 
 .right {
   flex: 1;
   min-width: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: $spacing-xl;
@@ -69,33 +104,87 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   @media (max-width: $breakpoint-md) {
     padding: $spacing-xl $spacing-lg;
     min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 2rem;
   }
+}
+
+/* Logo shown only on mobile/tablet when left panel is hidden */
+.logoMobile {
+  display: none;
+
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+    width: 100%;
+  }
+}
+
+.logoImgMobile {
+  height: 36px;
+  width: auto;
+  max-width: 173.76px;
+  display: block;
+  object-fit: contain;
 }
 
 .formBox {
   width: 100%;
   max-width: 447px;
+
+  @media (min-width: $breakpoint-lg) {
+    padding-top: 340px; /* clear space for Welcome (215–270px) + subtitle (280–308px) */
+  }
 }
 
 .welcome {
   margin: 0;
+  font-family: $font-login;
+  font-style: normal;
+  font-weight: 700;
   font-size: 40px;
-  font-weight: $font-weight-bold;
-  color: $navy;
+  line-height: 55px;
   letter-spacing: -0.04em;
-  line-height: $line-height-tight;
+  color: #213f7d;
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    width: 183px;
+    height: 55px;
+    left: 836px;
+    top: 215px;
+  }
 
   @media (max-width: $breakpoint-sm) {
     font-size: 28px;
+    line-height: 1.2;
   }
 }
 
 .subtitle {
   margin: 8px 0 32px;
-  font-size: $font-size-base;
-  font-weight: $font-weight-regular;
-  color: $text-muted;
-  line-height: $line-height-normal;
+  font-family: $font-login;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #545f7d;
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    width: 194px;
+    height: 28px;
+    left: 836px;
+    top: 280px;
+    margin: 0;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    color: $text-muted;
+  }
 }
 
 .form {
@@ -108,10 +197,13 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   width: 100%;
   height: 50px;
   padding: 0 16px;
-  border: 1px solid $color-border-input;
-  border-radius: $border-radius-md;
-  font-size: $font-size-base;
-  font-family: inherit;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  border-radius: 5px;
+  font-family: $font-login;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
   color: $color-text-primary;
   background: $color-background-input;
   box-sizing: border-box;
@@ -124,19 +216,37 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
     outline: none;
     border-color: $color-primary-accent;
   }
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    width: 447px;
+    height: 50px;
+    left: 836px;
+    top: 368px;
+  }
 }
 
 .passwordWrap {
   display: flex;
   align-items: center;
+  width: 100%;
   height: 50px;
-  border: 1px solid $color-border-input;
-  border-radius: $border-radius-md;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  border-radius: 5px;
   background: $color-background-input;
   box-sizing: border-box;
+  opacity: 1;
 
   &:focus-within {
     border-color: $color-primary-accent;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    width: 447px;
+    height: 50px;
+    left: 836px;
+    top: 442px;
   }
 }
 
@@ -147,8 +257,11 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   padding: 0 16px;
   border: none;
   background: transparent;
-  font-size: $font-size-base;
-  font-family: inherit;
+  font-family: $font-login;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
   color: $color-text-primary;
 
   &::placeholder {
@@ -192,6 +305,15 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   &:hover {
     text-decoration: underline;
   }
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    left: 836px;
+    top: 516px;
+    width: 147px;
+    margin: 0;
+    z-index: 1; /* above login button so it stays visible and clickable */
+  }
 }
 
 .submitBtn {
@@ -217,6 +339,17 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(57, 205, 204, 0.4);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    left: 836px;
+    top: 560px;
+    width: 447px;
+    height: 48px;
+    margin: 0;
+    background: #39cdcc;
+    border-radius: 8px;
   }
 }
 

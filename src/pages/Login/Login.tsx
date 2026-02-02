@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.scss";
-import logoImg from "../../assets/lendsqr.svg";
-import pabloIllustration from "../../assets/pablo-sign-in 1.svg";
+import logoImg from "../../assets/Group (4).svg";
+import pabloIllustration from "../../assets/pablo-sign-in 1.png";
 
 export function Login() {
   const nav = useNavigate();
@@ -39,6 +39,9 @@ export function Login() {
       </div>
 
       <div className={styles.right}>
+        <div className={styles.logoMobile} aria-hidden>
+          <img src={logoImg} alt="Lendsqr" className={styles.logoImgMobile} />
+        </div>
         <div className={styles.formBox}>
           <h1 className={styles.welcome}>Welcome!</h1>
           <p className={styles.subtitle}>Enter details to login.</p>
