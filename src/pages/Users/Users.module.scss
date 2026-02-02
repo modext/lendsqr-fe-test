@@ -1,0 +1,476 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.wrap {
+  max-width: 1100px;
+}
+
+.title {
+  margin: 0 0 18px;
+  padding-bottom: 22px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #213F7D;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.tableArea {
+  position: relative;
+  margin-top: 40px;
+}
+
+.state {
+  margin-top: 20px;
+  color: $text-muted;
+}
+
+.stateError {
+  margin-top: 20px;
+  color: #b91c1c;
+}
+
+@include tablet {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@include mobile {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xl;
+  padding-bottom: 40px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: $color-background-card;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-card;
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-md;
+}
+
+.cardIconUsers {
+  background: $color-stat-users;
+  color: #df18ff;
+}
+
+.cardIconActive {
+  background: $color-stat-active;
+  color: #5718ff;
+}
+
+.cardIconLoans {
+  background: $color-stat-loans;
+  color: #f55f44;
+}
+
+.cardIconSavings {
+  background: $color-stat-savings;
+  color: #ff3366;
+}
+
+.cardLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-xs;
+}
+
+.cardValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.tableWrap {
+  background: $color-background-card;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.tableTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background: $color-background-card;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  border-color: $color-primary-accent;
+  color: $color-primary-accent;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: left;
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(84, 95, 125, 0.04);
+  border-bottom: 1px solid $color-border;
+}
+
+.thContent {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.filterIcon {
+  color: $color-text-muted;
+  cursor: pointer;
+}
+
+.td {
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  border-bottom: 1px solid $color-border;
+}
+
+.tr:hover .td {
+  background: rgba(57, 205, 204, 0.02);
+}
+
+.status {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+.statusActive {
+  background: $color-status-active;
+  color: $color-status-active-text;
+}
+
+.statusInactive {
+  background: $color-status-inactive;
+  color: $color-status-inactive-text;
+}
+
+.statusPending {
+  background: $color-status-pending;
+  color: $color-status-pending-text;
+}
+
+.statusBlacklisted {
+  background: $color-status-blacklisted;
+  color: $color-status-blacklisted-text;
+}
+
+.menuBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-sm;
+  color: $color-text-secondary;
+  cursor: pointer;
+  background: none;
+}
+
+.menuBtn:hover {
+  background: rgba(84, 95, 125, 0.08);
+  color: $color-text-primary;
+}
+
+.menuWrap {
+  position: relative;
+}
+
+.menuDropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: $spacing-xs;
+  min-width: 180px;
+  background: $color-background-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-dropdown;
+  z-index: 10;
+  padding: $spacing-sm;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-radius: $border-radius-sm;
+}
+
+.menuItem:hover {
+  background: rgba(84, 95, 125, 0.06);
+  color: $color-text-primary;
+}
+
+.menuItemIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-top: 1px solid $color-border;
+}
+
+.paginationLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.pageSizeSelect {
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background: $color-background-card;
+  margin: 0 $spacing-xs;
+}
+
+.paginationRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pageEllipsis {
+  padding: 0 2px;
+  font-size: $font-size-sm;
+  color: #545F7D;
+  opacity: 0.6;
+}
+
+/* Page number: no box, plain text */
+.pageBtn {
+  min-width: auto;
+  height: auto;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  font-size: $font-size-sm;
+  color: #545F7D;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.pageBtn:hover:not(:disabled) {
+  opacity: 1;
+  color: #545F7D;
+}
+
+.pageBtn:disabled {
+  cursor: not-allowed;
+}
+
+/* Active page number: just the number, no button/pill */
+.pageBtnActive {
+  background: transparent;
+  color: #545F7D;
+  padding: 0 6px;
+  min-width: auto;
+  height: auto;
+  opacity: 1;
+}
+
+/* Rectangle 20: 24x24, prev/next arrow containers */
+.pageBtnArrow {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: rgba(33, 63, 125, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pageBtnArrow:hover:not(:disabled) {
+  background: rgba(33, 63, 125, 0.15);
+}
+
+.pageBtnArrow:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pageArrowIcon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.filterPanel {
+  position: absolute;
+  left: $spacing-lg;
+  top: 100%;
+  margin-top: $spacing-sm;
+  background: $color-background-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-dropdown;
+  padding: $spacing-lg;
+  z-index: 20;
+  min-width: 240px;
+  display: grid;
+  gap: $spacing-md;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.filterField label {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filterField input,
+.filterField select {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border-input;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background: $color-background-input;
+}
+
+.filterActions {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+}
+
+.filterReset {
+  padding: $spacing-sm $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-button-reset-text;
+  background: $color-button-reset;
+  cursor: pointer;
+}
+
+.filterSubmit {
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: white;
+  background: $color-primary-accent;
+  cursor: pointer;
+}
+
+.filterSubmit:hover {
+  background: $color-primary-accent-hover;
+}

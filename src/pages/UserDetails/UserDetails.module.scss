@@ -1,0 +1,479 @@
+@use "../../styles/variables" as *;
+
+/* Match Users page text settings */
+$font-users: "Work Sans", sans-serif;
+$color-primary: #213F7D;
+$color-muted: #545F7D;
+
+.wrap {
+  max-width: 1100px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: $color-muted;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  font-family: $font-users;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: $color-primary;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.blacklist,
+.activate {
+  width: 170px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: $radius-sm;
+  font-family: $font-users;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: transparent;
+  cursor: pointer;
+}
+
+.blacklist {
+  border: 1px solid #E4033B;
+  color: #E4033B;
+}
+.activate {
+  border: 1px solid #39CDCC;
+  color: #39CDCC;
+}
+
+/* Same border qualities as Users page (stat cards / table) */
+.summary {
+  margin-top: 22px;
+  height: 210px;
+  background: #FFFFFF;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px 4px 0 0;
+  padding: 30px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 280px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  font-family: $font-users;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 100%;
+  color: $color-primary;
+}
+.code {
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color-muted;
+  margin-top: 6px;
+}
+
+.divider {
+  width: 1px;
+  height: 54px;
+  background: $border;
+}
+
+.label {
+  font-family: $font-users;
+  font-weight: 600;
+  font-size: 12px;
+  color: $color-muted;
+}
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.stars img {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Figure (₦200,000.00) – Work Sans 500, 22px, line-height 26px, #213F7D */
+.balance {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  color: #213F7D;
+}
+.bank {
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color-muted;
+  margin-top: 6px;
+}
+
+.tabs {
+  background: #FFFFFF;
+  margin-top: -12px;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  border-top: none;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  gap: 80px;
+  padding: 0 24px 0 61px;
+}
+
+.tab,
+.tabActive {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: "SF Compact Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.tab {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.tabActive {
+  position: relative;
+  color: #39CDCC;
+  border-bottom: 2px solid transparent;
+}
+
+.tabActive::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 2px;
+  background: #39CDCC;
+}
+
+.panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 28px;
+  margin-top: 18px;
+}
+
+.tabPlaceholder {
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 16px;
+  color: $color-primary;
+}
+
+.tabPlaceholder p {
+  margin: 0 0 8px;
+}
+
+.tabPlaceholderHint {
+  font-size: 14px;
+  color: $color-muted !important;
+}
+
+/* Section / Grid / Field – match Users page table typography */
+.sectionTitle {
+  font-family: $font-users;
+  /* Personal Information / Education and Employment */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: $color-primary;
+  margin-bottom: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.fieldLabel {
+  font-family: $font-users;
+  /* FULL NAME, PHONE NUMBER, etc. */
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: $color-muted;
+}
+
+.fieldValue {
+  font-family: $font-users;
+  /* Grace Effiom, 07060780922, etc. */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: $color-muted;
+  margin-top: 8px;
+}
+
+.panelDivider {
+  height: 1px;
+  background: rgba(33, 63, 125, 0.1);
+  margin: 26px 0;
+}
+
+.state {
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+  color: $color-muted;
+}
+.stateError {
+  font-family: $font-users;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+  color: #b91c1c;
+}
+
+.btnBlacklist {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  background: $color-button-blacklist;
+  cursor: pointer;
+}
+
+.btnBlacklist:hover {
+  opacity: 0.9;
+}
+
+.btnActivate {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  background: $color-button-activate;
+  cursor: pointer;
+}
+
+.btnActivate:hover {
+  background: $color-primary-accent-hover;
+}
+
+.card {
+  background: $color-background-card;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  margin-bottom: $spacing-xl;
+}
+
+.summaryMain {
+  flex: 1;
+  min-width: 200px;
+}
+
+.userName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.userId {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-text-muted;
+  margin-bottom: $spacing-md;
+}
+
+.tierWrap {
+  margin-top: $spacing-sm;
+}
+
+.tierLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  color: $color-text-muted;
+  margin-bottom: $spacing-xs;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #e9b200;
+}
+
+.starEmpty {
+  color: rgba(84, 95, 125, 0.2);
+}
+
+.summaryRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2xl;
+  align-items: flex-start;
+}
+
+.balanceWrap,
+.bankWrap {
+  min-width: 160px;
+}
+
+.balanceLabel,
+.bankLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  color: $color-text-muted;
+  margin-bottom: $spacing-xs;
+}
+
+.balanceValue {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.bankValue {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-text-secondary;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  border-bottom: 1px solid $color-border;
+  padding: 0 24px 0 61px;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 8px 0 10px;
+  font-family: "SF Compact Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: $color-text-primary;
+}
+
+.tabActive {
+  color: $color-primary-accent;
+}
+
+.tabActive::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 2px;
+  background: $color-primary-accent;
+}
+
+.tabContent {
+  padding: $spacing-xl;
+}
+
+.section {
+  margin-bottom: $spacing-xl;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.guarantorCard {
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+.guarantorTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $color-text-muted;
+}
+
+.error {
+  color: $color-status-blacklisted-text;
+}
