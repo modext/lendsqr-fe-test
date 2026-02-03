@@ -1,0 +1,11 @@
+@use "../../styles/variables" as *;
+
+.loading {
+  margin-top: 20px;
+  color: $color-text-muted;
+}
+
+.error {
+  margin-top: 20px;
+  color: #b91c1c;
+}

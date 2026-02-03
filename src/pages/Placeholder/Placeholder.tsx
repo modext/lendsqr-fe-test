@@ -1,16 +1,10 @@
 import { useParams } from "react-router-dom";
 import styles from "./Placeholder.module.scss";
-
-function formatTitle(slug: string): string {
-  return slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
-}
+import { slugToTitle } from "../../utils/format";
 
 export function Placeholder() {
   const { name } = useParams<{ name: string }>();
-  const title = name ? formatTitle(name) : "Page";
+  const title = name ? slugToTitle(name) : "Page";
 
   return (
     <div className={styles.wrap}>

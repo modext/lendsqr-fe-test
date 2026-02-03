@@ -16,3 +16,11 @@ export function formatDateJoined(iso: string) {
 export function formatNGN(amount: number) {
   return new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN" }).format(amount);
 }
+
+/** Convert URL slug to title case (e.g. "some-section" → "Some Section") */
+export function slugToTitle(slug: string): string {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}

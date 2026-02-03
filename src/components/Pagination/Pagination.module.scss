@@ -1,0 +1,105 @@
+@use "../../styles/variables" as *;
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-top: 1px solid $color-border;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.pageSizeSelect {
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background: $color-background-card;
+  margin: 0 $spacing-xs;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ellipsis {
+  padding: 0 2px;
+  font-size: $font-size-sm;
+  color: #545f7d;
+  opacity: 0.6;
+}
+
+.pageBtn {
+  min-width: auto;
+  height: auto;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  font-size: $font-size-sm;
+  color: #545f7d;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.pageBtn:hover:not(:disabled) {
+  opacity: 1;
+  color: #545f7d;
+}
+
+.pageBtn:disabled {
+  cursor: not-allowed;
+}
+
+.pageBtnActive {
+  background: transparent;
+  color: #545f7d;
+  padding: 0 6px;
+  min-width: auto;
+  height: auto;
+  opacity: 1;
+}
+
+.pageBtnArrow {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: rgba(33, 63, 125, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pageBtnArrow:hover:not(:disabled) {
+  background: rgba(33, 63, 125, 0.15);
+}
+
+.pageBtnArrow:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.arrowIcon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
