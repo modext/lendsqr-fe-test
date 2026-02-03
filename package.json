@@ -13,8 +13,12 @@
     "generate-mock-users": "node scripts/generate-mock-users.js"
   },
   "dependencies": {
+    "axios": "^1.7.9",
+    "clsx": "^2.1.1",
+    "idb": "^8.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

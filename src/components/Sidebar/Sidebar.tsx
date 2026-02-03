@@ -91,7 +91,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
 
           <NavLink
             to="/dashboard"
-            className={({ isActive }) =>
+            className={({ isActive }: { isActive: boolean }) =>
               isActive ? `${styles.item} ${styles.active}` : styles.item
             }
             {...linkProps}
@@ -107,7 +107,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
             <NavLink
               key={it.label}
               to={it.to}
-              className={({ isActive }) =>
+              className={({ isActive }: { isActive: boolean }) =>
                 isActive ? `${styles.item} ${styles.active}` : styles.item
               }
               {...linkProps}
@@ -141,7 +141,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
             <NavLink
               key={it.label}
               to={it.to}
-              className={({ isActive }) =>
+              className={({ isActive }: { isActive: boolean }) =>
                 isActive ? `${styles.item} ${styles.active}` : styles.item
               }
               {...linkProps}
