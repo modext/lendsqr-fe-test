@@ -69,9 +69,13 @@ $color-muted: #545F7D;
   color: #39CDCC;
 }
 
-/* Single card: summary + tabs, no horizontal line between */
+/* Single card: summary + tabs, total height 210px */
 .summaryCard {
   margin-top: 22px;
+  height: 210px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
   background: #FFFFFF;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -80,9 +84,10 @@ $color-muted: #545F7D;
 }
 
 .summary {
-  height: 210px;
+  flex: 1 1 0;
+  min-height: 0;
   box-sizing: border-box;
-  padding: 30px 30px;
+  padding: 30px 30px 10px 30px;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -160,6 +165,7 @@ $color-muted: #545F7D;
 }
 
 .tabs {
+  flex-shrink: 0;
   display: flex;
   gap: 70px;
   padding: 0 24px 0 61px;
@@ -198,12 +204,13 @@ $color-muted: #545F7D;
   background: #39CDCC;
 }
 
+/* Figma: base 1037×910, content 30px inset → content width 977px (dividers) */
 .panel {
   background: #FFFFFF;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
-  padding: 30px 89px 30px 30px;
+  padding: 30px;
   margin-top: 18px;
 }
 
@@ -223,28 +230,52 @@ $color-muted: #545F7D;
   color: $color-muted !important;
 }
 
-/* Section / Grid / Field – match Users page table typography */
+/* Section / Grid / Field – match Figma (content touches both ends) */
 .sectionTitle {
   font-family: $font-users;
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 19px;
   color: $color-primary;
   margin-bottom: 30px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 28px;
   margin-bottom: 30px;
+  width: 100%;
+}
+
+/* First section, first row: extra space between columns so Female’s ‘e’ touches the right border; no wrap */
+.section:first-child .grid:first-of-type {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+.section:first-child .grid:first-of-type > * {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.section:first-child .grid:first-of-type > *:last-child {
+  margin-left: auto;
+}
+
+.section:first-child .grid:first-of-type > * .fieldValue {
+  white-space: nowrap;
 }
 
 .gridFour {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .fieldLabel {
@@ -262,14 +293,19 @@ $color-muted: #545F7D;
   font-family: $font-users;
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 19px;
   color: $color-muted;
   margin-top: 8px;
+  min-width: 0;
+  word-break: break-word;
 }
 
+/* Figma: divider width 977px, 1px solid #213F7D, opacity 0.1 */
 .panelDivider {
-  height: 1px;
-  background: rgba(33, 63, 125, 0.1);
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid rgba(33, 63, 125, 0.1);
   margin: 26px 0;
 }
 
@@ -406,7 +442,7 @@ $color-muted: #545F7D;
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 80px;
+  gap: 79px;
   border-bottom: 1px solid $color-border;
   padding: 0 0 0 61px;
   overflow-x: auto;
@@ -450,6 +486,7 @@ $color-muted: #545F7D;
 }
 
 .section {
+  width: 100%;
   margin-bottom: $spacing-xl;
 }
 
@@ -480,4 +517,261 @@ $color-muted: #545F7D;
 
 .error {
   color: $color-status-blacklisted-text;
+}
+
+/* ========== Responsive: Tablet (≤1024px) ========== */
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 0 20px;
+  }
+
+  .headerRow {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .actions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .blacklist,
+  .activate {
+    width: 140px;
+    height: 36px;
+    font-size: 11px;
+  }
+
+  .summaryCard {
+    min-height: 210px;
+    height: auto;
+  }
+
+  .summary {
+    padding: 20px 20px 8px;
+    gap: 20px;
+  }
+
+  .profile {
+    min-width: 160px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .divider {
+    height: 44px;
+  }
+
+  .balance {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .tabs {
+    gap: 40px;
+    padding: 0 16px 0 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab,
+  .tabActive {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .tabActive::after {
+    width: 120px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .gridFour {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .section:first-child .grid:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .section:first-child .grid:first-of-type > *:last-child {
+    margin-left: 0;
+  }
+
+  .sectionTitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .fieldValue {
+    font-size: 14px;
+  }
+}
+
+/* ========== Responsive: Mobile (≤640px) ========== */
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .back {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+    padding-bottom: 12px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 10px;
+  }
+
+  .blacklist,
+  .activate {
+    flex: 1;
+    min-width: 120px;
+    width: auto;
+    height: 40px;
+    font-size: 11px;
+  }
+
+  .summaryCard {
+    min-height: auto;
+    height: auto;
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px 12px;
+    gap: 16px;
+  }
+
+  .profile {
+    min-width: 0;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    min-height: 0;
+  }
+
+  .balance {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .bank {
+    font-size: 11px;
+  }
+
+  .tabs {
+    gap: 20px;
+    padding: 0 12px 0 16px;
+  }
+
+  .tab,
+  .tabActive {
+    font-size: 13px;
+    padding: 6px 0 8px;
+  }
+
+  .tabActive::after {
+    width: 80px;
+  }
+
+  .panel {
+    padding: 16px;
+    margin-top: 14px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .gridFour {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .section:first-child .grid:first-of-type {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .section:first-child .grid:first-of-type > * {
+    white-space: normal;
+  }
+
+  .section:first-child .grid:first-of-type > * .fieldValue {
+    white-space: normal;
+  }
+
+  .section:first-child .grid:first-of-type > *:last-child {
+    margin-left: 0;
+  }
+
+  .sectionTitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .fieldLabel {
+    font-size: 11px;
+  }
+
+  .fieldValue {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .panelDivider {
+    margin: 20px 0;
+  }
 }
