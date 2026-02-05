@@ -255,38 +255,18 @@ $color-muted: #545F7D;
   margin-bottom: 30px;
 }
 
+/* Equal columns so Personal Information, Socials, Guarantor share same alignment and use full width */
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 28px;
   margin-bottom: 30px;
   width: 100%;
 }
 
-.section:first-child .grid:first-of-type {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: 48px;
-  width: 100%;
-}
-
-.section:first-child .grid:first-of-type > * {
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
-.section:first-child .grid:first-of-type > *:last-child {
-  margin-left: auto;
-}
-
-.section:first-child .grid:first-of-type > * .fieldValue {
-  white-space: nowrap;
-}
-
 .gridFour {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   margin-bottom: 30px;
   width: 100%;
@@ -311,6 +291,13 @@ $color-muted: #545F7D;
   margin-top: 8px;
   min-width: 0;
   word-break: break-word;
+}
+
+.fieldValueNoWrap {
+  white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .panelDivider {

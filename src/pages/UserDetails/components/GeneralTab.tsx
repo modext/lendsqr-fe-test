@@ -9,18 +9,25 @@ type GeneralTabProps = {
 };
 
 export function GeneralTab({ user }: GeneralTabProps) {
+  const monthlyIncome =
+    (user.education?.monthlyIncomeRange ?? "₦200,000.00 - ₦400,000.00").replace(
+      /\s*-\s*/g,
+      "\u00A0-\u00A0"
+    );
+
   return (
     <>
       <Section title="Personal Information">
         <Grid>
           <Field k="FULL NAME" v={user.fullName ?? user.username} />
           <Field k="PHONE NUMBER" v={user.phone} />
-          <Field k="EMAIL ADDRESS" v={user.email} />
+          <Field
+            k="EMAIL ADDRESS"
+            v={user.email ?? ""}
+            valueClassName={styles.fieldValueNoWrap}
+          />
           <Field k="BVN" v={user.profile?.bvn ?? user.phone} />
           <Field k="GENDER" v={user.profile?.gender ?? "Female"} />
-        </Grid>
-
-        <Grid>
           <Field k="MARITAL STATUS" v={user.profile?.maritalStatus ?? "Single"} />
           <Field k="CHILDREN" v={user.profile?.children ?? "None"} />
           <Field
@@ -56,10 +63,12 @@ export function GeneralTab({ user }: GeneralTabProps) {
           <Field
             k="OFFICE EMAIL"
             v={user.education?.officeEmail ?? "grace@lendsqr.com"}
+            valueClassName={styles.fieldValueNoWrap}
           />
           <Field
             k="MONTHLY INCOME"
-            v={user.education?.monthlyIncomeRange ?? "₦200,000.00 - ₦400,000.00"}
+            v={monthlyIncome}
+            valueClassName={styles.fieldValueNoWrap}
           />
           <Field
             k="LOAN REPAYMENT"
@@ -93,6 +102,7 @@ export function GeneralTab({ user }: GeneralTabProps) {
           <Field
             k="EMAIL ADDRESS"
             v={user.guarantors?.[0]?.email ?? "debby@gmail.com"}
+            valueClassName={styles.fieldValueNoWrap}
           />
           <Field
             k="RELATIONSHIP"
